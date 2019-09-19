@@ -6,7 +6,7 @@
   
   <ion-content padding>
     <ion-list>
-      <!-- <ion-item>
+      <ion-item>
   
         <ion-label>Categoria</ion-label>
         <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
@@ -15,7 +15,7 @@
           </ion-select-option>
         </ion-select>
   
-      </ion-item> -->
+      </ion-item>
   
       <ion-item *ngFor="let produto of produtos | async" (click)="adicionarProduto(produto.key)">
         <ion-avatar slot="start" *ngIf="produto.img">

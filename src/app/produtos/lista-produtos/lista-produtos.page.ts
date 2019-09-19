@@ -10,12 +10,15 @@ import { ProdutosService } from '../shared/produtos.service';
 })
 export class ListaProdutosPage implements OnInit {
   produtos: Observable<any[]>;
+  categorias: Observable<any[]>;
+  categoriasService: any;
 
   constructor(private router: Router,
               private produtosService: ProdutosService) { }
 
   ngOnInit() {
     this.produtos = this.produtosService.getAll();
+    this.categorias = this.produtosService.getCategoriasAll();
   }
 
 }

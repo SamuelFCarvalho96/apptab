@@ -10,9 +10,9 @@ export class ProdutosService {
 
   constructor(private db: AngularFireDatabase) { }
 
-// trazer todos os dados do banco
+// Trazer todos os dados do banco
 
-  getAll(categoriaKey: string = null){
+  getAll(categoriaKey: string = null) {
     return this.db.list(FirebasePath.PRODUTOS, q => {
       if (categoriaKey) {
         return q.orderByChild('categoriaKey').equalTo(categoriaKey);
@@ -23,6 +23,14 @@ export class ProdutosService {
       map(changes => {
         return changes.map(m => ({key: m.payload.key, ...m.payload.val()}));
       })
-    )
+    );
+  }
+
+  getCategoriasAll() {
+    return this.db.list(FirebasePath.CATEGORIAS).snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(m => ({ key: m.payload.key, ...m.payload.val() }));
+      })
+    );
   }
 }
