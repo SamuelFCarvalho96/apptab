@@ -11,7 +11,7 @@ import { ProdutosService } from '../shared/produtos.service';
 export class ListaProdutosPage implements OnInit {
   produtos: Observable<any[]>;
   categorias: Observable<any[]>;
-  categoriasService: any;
+  categoriasSelecionada: string;
 
   constructor(private router: Router,
               private produtosService: ProdutosService) { }
@@ -19,6 +19,14 @@ export class ListaProdutosPage implements OnInit {
   ngOnInit() {
     this.produtos = this.produtosService.getAll();
     this.categorias = this.produtosService.getCategoriasAll();
+  }
+
+  buscarProdutos(){
+    this.produtos = this.produtosService.getAll(this.categoriasSelecionada);
+  }
+
+  adicionarProduto(produtoKey: string){
+    this.router.navigate(['pedido/carrinho/novo-item', produtoKey]);
   }
 
 }

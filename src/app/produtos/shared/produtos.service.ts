@@ -23,7 +23,7 @@ export class ProdutosService {
       map(changes => {
         return changes.map(m => ({key: m.payload.key, ...m.payload.val()}));
       })
-    );
+    )
   }
 
   getCategoriasAll() {
@@ -32,5 +32,16 @@ export class ProdutosService {
         return changes.map(m => ({ key: m.payload.key, ...m.payload.val() }));
       })
     );
+  }
+
+  //Trazer produto pela Key,será usado para o processo
+  
+  getByKey(key: string){
+    const path = '${FirebasePath.PRODUTOS}${key}';
+    return this.db.object(path).snapshotChanges().pipe(
+      map(change => {
+        return ({ key: change.key, ...change.payload.val()})
+      })
+    )
   }
 }
