@@ -35,12 +35,12 @@ export class ProdutosService {
   }
 
   //Trazer produto pela Key,será usado para o processo
-  
+
   getByKey(key: string){
-    const path = '${FirebasePath.PRODUTOS}${key}';
+    const path = `${FirebasePath.PRODUTOS}${key}`;
     return this.db.object(path).snapshotChanges().pipe(
       map(change => {
-        return ({ key: change.key, ...change.payload.val()})
+        return ({ key: change.key, ...change.payload.val()});
       })
     )
   }
