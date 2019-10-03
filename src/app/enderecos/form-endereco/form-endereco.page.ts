@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EnderecoService } from './../shared/endereco.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,10 +14,25 @@ export class FormEnderecoPage implements OnInit {
   key: string;
 
   constructor(private enderecoService: EnderecoService, private formbuilder: FormBuilder,
-              private route: ActivatedRoute, private toast: ToastService) { }
+              private route: ActivatedRoute, private toast: ToastService,
+              private router: Router) { }
 
   ngOnInit() {
     this.criarFormulario();
+    let key = this.route.snapshot.paramMap.get('key');
+    if (key) {
+      const subscribe = this.enderecoService.getByKey(key).subscribe( (endereco: any) => {
+        subscribe.unsubscribe();
+        this.key = endereco.key;
+        this.formEndereco.patchValue({
+          cep: endereco.cep,
+          logradouro: endereco.logradouro,
+          numero: endereco.numero,
+          complemento: endereco.complemento,
+          bairro: endereco.bairro,
+        });
+      });
+    }
   }
 
   criarFormulario() {
@@ -46,6 +61,7 @@ export class FormEnderecoPage implements OnInit {
         if (!this.key) {
           this.criarFormulario();
         }
+        this.router.navigate(['/usuarios/enderecos']);
       })
       .catch( () => {
         this.toast.show('Erro ao salvar o endereço');
