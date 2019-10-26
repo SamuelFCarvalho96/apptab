@@ -22,7 +22,7 @@ export class ListaProdutosPage implements OnInit {
   ngOnInit() {
     this.produtos = this.produtosService.getAll();
     this.categorias = this.produtosService.getCategoriasAll();
-    this.carrinhoService.carrinhoPossuiItens().subscribe((existemItens: boolean) =>{
+    this.carrinhoService.carrinhoPossuiItens().subscribe((existemItens: boolean) => {
     this.carrinhoPossuiItens = existemItens;
     });
   }
@@ -31,7 +31,7 @@ export class ListaProdutosPage implements OnInit {
     this.produtos = this.produtosService.getAll(this.categoriasSelecionada);
   }
 
-  adicionarProduto(produtoKey: string){
+  adicionarProduto(produtoKey: string) {
     this.router.navigate(['pedido/carrinho/novo-item', produtoKey]);
   }
 

@@ -7,6 +7,9 @@ import { map, take, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
+// Authguard serve para guardar rotas caso precise de autenticação no App
+
 export class AuthGuard implements CanActivate  {
 
   constructor(private router: Router, private afAuth: AngularFireAuth) {}

@@ -16,7 +16,7 @@ sair() {
   this.usuariosService.logout()
   .then(() => {
     this.router.navigate(['/login']);
-  })
+  });
 }
 
 }

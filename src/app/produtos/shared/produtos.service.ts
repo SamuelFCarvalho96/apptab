@@ -23,7 +23,7 @@ export class ProdutosService {
       map(changes => {
         return changes.map(m => ({key: m.payload.key, ...m.payload.val()}));
       })
-    )
+    );
   }
 
   getCategoriasAll() {
@@ -34,7 +34,7 @@ export class ProdutosService {
     );
   }
 
-  //Trazer produto pela Key,será usado para o processo
+  // Trazer produto pela Key,será usado para o processo
 
   getByKey(key: string){
     const path = `${FirebasePath.PRODUTOS}${key}`;
@@ -42,6 +42,6 @@ export class ProdutosService {
       map(change => {
         return ({ key: change.key, ...change.payload.val()});
       })
-    )
+    );
   }
 }

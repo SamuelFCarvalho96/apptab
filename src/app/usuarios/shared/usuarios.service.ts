@@ -9,6 +9,8 @@ export class UsuariosService {
 
   constructor(private afAuth: AngularFireAuth) { }
 
+  // Criar nova conta de usuário
+
   criarConta(usuario: any) {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha)
@@ -24,9 +26,13 @@ export class UsuariosService {
     });
   }
 
+  // Deslogar
+
   logout() {
     return this.afAuth.auth.signOut();
   }
+
+  // Trazer os dados de usuários
 
   getDadosUsuario() {
     const user = {name: '', email: ''};
@@ -37,6 +43,8 @@ export class UsuariosService {
 
     return user;
   }
+
+  // Logar em uma conta
 
   login(email: string, senha: string) {
     return new Promise((resolve, reject) => {
@@ -55,6 +63,8 @@ export class UsuariosService {
     });
   }
 
+  // Reenvio de Email para o Esqucer senha
+
   enviarEmailResetarSenha(email: string) {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.sendPasswordResetEmail(email)
@@ -66,6 +76,8 @@ export class UsuariosService {
         });
     });
   }
+
+  // Mensagens de Erro
 
   handlerError(error: any) {
     let mensagem = '';
