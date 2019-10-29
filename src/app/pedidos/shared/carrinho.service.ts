@@ -55,13 +55,13 @@ export class CarrinhoService {
         .map( (m: any) => (m.payload.val().total))
         .reduce( (prev: number, current: number) => {
           return prev + current;
-        })
+        });
       })
-    )
+    );
   }
 
   clear() {
-
+    return this.getCarrinhoProdutosRef().remove();
   }
 
 

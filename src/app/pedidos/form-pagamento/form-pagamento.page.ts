@@ -29,7 +29,8 @@ export class FormPagamentoPage implements OnInit {
               private modalCtrl: ModalController,
               private pedidoService: PedidoService,
               private router: Router,
-              private toast: ToastService) { }
+              private toast: ToastService,
+              ) { }
 
   ngOnInit() {
     this.criarFormulario();
@@ -51,11 +52,11 @@ export class FormPagamentoPage implements OnInit {
     });
   }
 
-  selecionarEndereço() {
+  selecionarEndereco() {
     this.modalCtrl.create({
       component: ListaEnderecoPage,
       componentProps: {
-        selecionaEndereco: true
+        selecionarEndereco: true
       },
       showBackdrop: true,
       backdropDismiss: true
@@ -81,9 +82,9 @@ export class FormPagamentoPage implements OnInit {
         })
         .catch( () => {
           this.toast.show('Erro ao salvar o pedido');
-        })
+        });
       }
     }
   }
 
-}
+
