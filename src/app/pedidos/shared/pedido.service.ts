@@ -44,7 +44,7 @@ gerarPedido(pedido: any){
         const pedidoProdutoPath = `${FirebasePath.PEDIDOS_PRODUTOS}${pedidoKey}/${produto.produtoKey}`;
         pedidoObj[pedidoProdutoPath] = {
           produtoNome: produto.produtoNome,
-          produtoDescricao: produto.Descricao,
+          produtoDescricao: produto.produtoDescricao,
           observacao: produto.observacao,
           produtoPreco: produto.produtoPreco,
           quantidade: produto.quantidade,
@@ -74,7 +74,7 @@ gerarPedido(pedido: any){
       formpagamento: pedido.formaPagamento,
       trocoPara: pedido.trocoPara,
       tipoCartao: pedido.tipoCartao,
-      enderecoEntrega: pedido.emderecoEntrega,
+      enderecoEntrega: pedido.enderecoEntrega,
       usuarioKey: this.afAuth.auth.currentUser.uid,
       usuarioNome: this.afAuth.auth.currentUser.displayName,
       // Tecnica para filtro de varios campos

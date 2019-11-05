@@ -11,8 +11,9 @@ import { ToastService } from '../../core/shared/toast.service';
 export class EsqueciSenhaPage implements OnInit {
   formEsqueciSenha: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private usuariosService: UsuariosService,
-    private toast: ToastService) { }
+  constructor(private formBuilder: FormBuilder,
+              private usuariosService: UsuariosService,
+              private toast: ToastService) { }
 
   ngOnInit() {
     this.criarFormulario();

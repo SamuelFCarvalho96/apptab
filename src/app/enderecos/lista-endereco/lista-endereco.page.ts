@@ -13,7 +13,7 @@ import { ModalController } from '@ionic/angular';
 })
 
 export class ListaEnderecoPage implements OnInit {
-  [x: string]: any;
+
   enderecos: Observable<any[]>;
   @Input()
   selecionarEndereco: boolean = false;

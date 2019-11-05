@@ -20,6 +20,6 @@ import { ValorComponent } from '../valor/valor.component';
     ReactiveFormsModule,
     ValorComponent
   ],
-  entryComponents: [ValorComponent]
+  entryComponents: [ValorComponent],
 })
 export class SharedModule { }

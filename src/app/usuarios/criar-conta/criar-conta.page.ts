@@ -33,7 +33,7 @@ formCriarConta: FormGroup;
       senha: ['', Validators.required]
     });
   }
-    onSubmit(){
+    onSubmit() {
       if (this .formCriarConta.valid) {
         this .usuariosService.criarConta(this .formCriarConta.value)
           .then(() => {
