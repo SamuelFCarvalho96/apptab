@@ -71,7 +71,7 @@ gerarPedido(pedido: any){
       numero: numeroPedido,
       status: PedidoService.STATUS.ENVIADO,
       data: dataPedido,
-      formpagamento: pedido.formaPagamento,
+      formaPagamento: pedido.formaPagamento,
       trocoPara: pedido.trocoPara,
       tipoCartao: pedido.tipoCartao,
       enderecoEntrega: pedido.enderecoEntrega,

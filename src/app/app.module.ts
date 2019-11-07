@@ -14,13 +14,10 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { DatePipe } from '@angular/common';
-import { ListaEnderecoPage } from './enderecos/lista-endereco/lista-endereco.page';
-
-// Adicionado ListaEnderecoPage na linha 22 e 23 para listar o pedido com o endereço selecionado
 
 @ NgModule({
-  declarations: [AppComponent, ListaEnderecoPage],
-  entryComponents: [ListaEnderecoPage],
+  declarations: [AppComponent, ] ,
+  entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
             AppRoutingModule,
             AngularFireModule.initializeApp(firebaseconfig),

@@ -17,9 +17,9 @@
         <div margin-vertical>
           <div><b>Valor total: </b> <app-valor [valor]="pedido.total" ></app-valor></div>
           <div>
-            <b>{{ getFormaPagamentoNome(pedido.formaPagamento) }}: </b>
-            <span *ngIf="pedido.formaPagamento == 1">Troco para: {{ pedido.trocoPara || 0 | currency:'BRL' }}</span>
-            <span text-wrap *ngIf="pedido.formaPagamento == 2">{{ pedido.tipoCartao }}</span>
+            <b>{{ getFormaPagamentoNome(pedido.formPagamento) }}: </b>
+            <span *ngIf="pedido.formPagamento == 1">Troco para: {{ pedido.trocoPara || 0 | currency:'BRL' }}</span>
+            <span text-wrap *ngIf="pedido.formPagamento == 2">{{ pedido.tipoCartao }}</span>
           </div>
           <div>
             <b>Data:</b> {{ pedido.data }}
